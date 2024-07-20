@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'IntegralCF';
+  src: url('/fonts/Fontspring-DEMO-integralcf-extrabold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.no-visible-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+   
+  .no-visible-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
