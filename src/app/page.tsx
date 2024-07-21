@@ -7,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Services } from "@/components/Services";
 import Loader from "@/components/Loader"; 
+import { Contact } from "@/components/Contact";
 
 const transitionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -26,7 +27,6 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-black">
       <AnimatePresence>
         {loading ? (
           <motion.div
@@ -58,12 +58,12 @@ export default function Home() {
             >
               <Hero />
             </motion.div>
-            <BentoGridSecondDemo />
-            <Services />
-            <FeaturesSectionDemo />
+            {/* <BentoGridSecondDemo /> */}
+            {/* <Services /> */}
+            <Contact />
+            {/* <FeaturesSectionDemo /> */}
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
   );
 }

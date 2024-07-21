@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { cn } from "./utils";
 type TextSlideInFromBottomProps = {
     className?: string;
     text : string;
@@ -17,3 +17,69 @@ export const TextSlideInFromBottom = ({text,className}: TextSlideInFromBottomPro
         </div>
     );
 }
+
+
+
+const DURATION = 0.25;
+const STAGGER = 0.025;
+
+type FlipLinkProps = {
+  children: string;
+  className?: string;
+}
+export const FlipLink = ({ children, className }: FlipLinkProps) => {
+  return (
+    <motion.p
+      initial="initial"
+      whileHover="hovered"
+      className={cn(`relative block overflow-hidden`, className)}
+    >
+      <div>
+        {children.split("").map((l, i) => (
+          <motion.span
+            variants={{
+              initial: {
+                y: 0,
+              },
+              hovered: {
+                y: "-100%",
+              },
+            }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+            key={i}
+          >
+            {l}
+          </motion.span>
+        ))}
+      </div>
+      <div className="absolute inset-0">
+        {children.split("").map((l, i) => (
+          <motion.span
+            variants={{
+              initial: {
+                y: "100%",
+              },
+              hovered: {
+                y: 0,
+              },
+            }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+            key={i}
+          >
+            {l}
+          </motion.span>
+        ))}
+      </div>
+    </motion.p>
+  );
+};

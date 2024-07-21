@@ -1,5 +1,4 @@
 import { Spotlight } from "@/app/ui/Spotlight"
-import { Button } from "./Button"
 import MaxWidthWrapper from "./MaxWidth"
 import { TextHeroSection } from "./TextHeroSection"
 
@@ -18,10 +17,7 @@ export const Hero = () => {
                     <TextHeroSection />
                     </h1>
                     <p className="mt-4 font-normal text-lg text-neutral-300 max-w-lg text-center mx-auto">
-                    Spotlight effect is a great way to draw attention to a specific part
-                    of the page. Here, we are drawing the attention towards the text
-                    section of the page. I don&apos;t know why but I&apos;m running out of
-                    copy.
+                        No Spotlight Studio, destacamos sua marca com experiências digitais que capturam sua essência e brilham no mercado competitivo.
                     </p>
                 </div>
             </div>
