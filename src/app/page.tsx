@@ -33,10 +33,10 @@ export default function Home() {
             key="loader"
             initial={{ opacity: 0, scale: 0.1 }}
             animate={{ opacity: 1, scale: 1 } }
-            transition={{ duration: 1, ease: easing }}
+            transition={{ duration: 2, ease: easing }}
             exit={{  
               y: -1000, 
-              transition: { duration: 0.5, ease: easing }
+              transition: { duration: 1, ease: easing }
             }}
           >
             <Loader />
