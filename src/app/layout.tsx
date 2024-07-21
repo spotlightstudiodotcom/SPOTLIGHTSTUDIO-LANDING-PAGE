@@ -6,7 +6,7 @@ import "./globals.css";
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "spotlight. | Um estúdio digital que cria sites que não só brilham, mas também performam.",
+  title: "Spotlight. | Um estúdio digital que cria sites que não só brilham, mas também performam.",
   description: "Um estúdio digital que cria sites que não só brilham, mas também performam.",
 };
 

@@ -36,34 +36,20 @@ const AnimatedText = ({ text }: { text: string }) => {
 };
 
 export const Loader = () => {
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setHasAnimated(true);
-    }, 500); 
-  }, []);
-
+ 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: hasAnimated ? 1 : 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <p className="text-lg lg:text-2xl font-bold p-2 font-Integral leading-normal tracking-normal">
-          <motion.span
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, type: "spring", stiffness: 100, damping: 10 }}
-            className="inline-block"
-          >
-            S
-          </motion.span>
+        <p className="text-4xl lg:text-7xl font-bold p-2 font-Integral leading-normal tracking-normal">
           <span className="sr-only">SPOTLIGHTSTUDIO.</span>
-          <AnimatedText text="POTLIGHTSTUDIO." />
+          <AnimatedText text="SPOTLIGHTSTUDIO." />
         </p>
       </motion.div>
+      <p className="text-lg lg:text-2xl font-bold p-2 leading-normal tracking-normal">Um estúdio digital que cria sites que não só brilham, mas também performam.</p>
     </div>
   );
 };

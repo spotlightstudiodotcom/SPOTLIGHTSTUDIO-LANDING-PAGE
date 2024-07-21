@@ -23,9 +23,6 @@ export const Hero = () => {
                     section of the page. I don&apos;t know why but I&apos;m running out of
                     copy.
                     </p>
-                    <div className="flex justify-center mt-10">
-                        <Button content="Get Started" className="lg:text-lg"/>
-                    </div>
                 </div>
             </div>
             </MaxWidthWrapper>

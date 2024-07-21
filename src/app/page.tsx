@@ -31,11 +31,10 @@ export default function Home() {
         {loading ? (
           <motion.div
             key="loader"
-            initial={{ opacity: 0, scale: 0.1, borderRadius: "100%" }}
-            animate={{ opacity: 1, scale: 1 ,borderRadius: "0%"} }
+            initial={{ opacity: 0, scale: 0.1 }}
+            animate={{ opacity: 1, scale: 1 } }
             transition={{ duration: 1, ease: easing }}
-            exit={{ 
-              opacity: 0, 
+            exit={{  
               y: -1000, 
               transition: { duration: 0.5, ease: easing }
             }}
@@ -51,13 +50,7 @@ export default function Home() {
             variants={transitionVariants}
             transition={{ duration: 1.5, ease: easing }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: easing }}
-            >
-              <Navbar />
-            </motion.div>
+            <Navbar />
             <motion.div
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}

@@ -19,3 +19,34 @@
   .no-visible-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+  
+  .menu-enter {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .menu-exit {
+    animation: slideOut 0.5s ease-in;
+  }

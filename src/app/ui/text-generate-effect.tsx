@@ -24,7 +24,7 @@ export const TextGenerateEffect = ({
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 2, delay: idx * 0.2 }}
+              transition={{ duration: 1.2, delay: idx * 0.2 }}
             >
               {word}{" "}
             </motion.span>

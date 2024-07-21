@@ -3,32 +3,10 @@ import React, { useEffect, useState } from "react";
 import { cn } from "../app/lib/utils";
 import MaxWidthWrapper from "./MaxWidth";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const Navbar = ({ className }: { className?: string }) => {
-  const [scrolled, setScrolled] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    setHasAnimated(true);
-  }, []);
-
   const [active, setActive] = useState<string | null>(null);
 
   const textVariants = {
@@ -68,10 +46,7 @@ export const Navbar = ({ className }: { className?: string }) => {
   return (
     <nav
       className={cn(
-        "w-full py-4 text-white fixed top-0 z-30 ",
-        scrolled
-          ? "lg:backdrop-filter lg:backdrop-blur-lg lg:bg-opacity-10 lg:bg-black"
-          : "bg-transparent",
+        "w-full py-4 text-white fixed top-0 z-30 bg-transparent",
         className
       )}
     >
@@ -79,13 +54,13 @@ export const Navbar = ({ className }: { className?: string }) => {
         <div className="flex items-center justify-between w-full">
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: hasAnimated ? 1 : 0 }}
+            animate={{ opacity: 1}}
             transition={{ duration: 1 }}
           >
-            <p className="text-lg lg:text-2xl font-bold p-2 font-Integral leading-normal tracking-normal">
+            <Link href="/" className="text-lg lg:text-2xl font-bold p-2 font-Integral leading-normal tracking-normal">
               <span className="sr-only">SPOTLIGHTSTUDIO.</span>
               <AnimatedText text="SPOTLIGHTSTUDIO." />
-            </p>
+            </Link>
           </motion.div>
           <HamburgerIcon isOpen={menuOpen} setMenuOpen={() => setMenuOpen(!menuOpen)} />
           <ul
