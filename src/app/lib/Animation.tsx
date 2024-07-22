@@ -18,39 +18,6 @@ export const TextSlideInFromBottom = ({text,className}: TextSlideInFromBottomPro
     );
 }
 
-type TextSlideInFromBottomWordsProps = {
-  text: string;
-  className?: string;
-}
-
-const TextSlideFromBottom = ({ text, className }: TextSlideInFromBottomWordsProps) => {
-  const words = text.split(' '); 
-  const variantsMenu = {
-    hidden: { opacity: 0, x: "100%" },
-    visible: { opacity: 1, x: "0%", transition: { duration: 0.5, ease: "easeInOut" } },
-  };
-  
-  
-  return (
-    <span className={className}>
-      {words.map((word, index) => (
-        <motion.span
-          key={index}
-          variants={variantsMenu}
-          initial="hidden"
-          // animate="visible"
-          whileInView="visible"
-          className="inline-block"
-        >
-          {word}{' '}
-        </motion.span>
-      ))}
-    </span>
-  );
-};
-
-
-
 
 const DURATION = 0.25;
 const STAGGER = 0.025;
