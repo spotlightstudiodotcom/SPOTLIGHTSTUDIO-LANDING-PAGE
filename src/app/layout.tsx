@@ -57,16 +57,16 @@ export const metadata: Metadata = {
     siteName: "Spotlight Studio",
     images: [
       {
-        url: "https://www.studiospotlight.com.br/favicon-48x48.ico",
-        width: 48,
-        height: 48,
+        url: "https://www.studiospotlight.com.br/spotlight-logo.png",
+        width: 250,
+        height: 150,
         alt: "Spotlight Studio",
       },
     ],
     locale: "pt_BR",
     type: "website",
   },
-  assets : "favicon.ico",
+  assets : "/spotlight-logo.png",
   alternates : {
     canonical : "https://www.studiospotlight.com.br/",
     languages : {

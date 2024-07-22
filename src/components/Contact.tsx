@@ -88,7 +88,7 @@ export const Contact = () => {
                   Preencha o campo de mensagem
                 </motion.span>
               )}
-              <label className="text-white text-base lg:text-lg">é o meu e-mail e</label>
+              <label className="text-white text-base lg:text-lg">e o meu e-mail é</label>
               <input
                 {...register('email', { 
                   required: true, 
