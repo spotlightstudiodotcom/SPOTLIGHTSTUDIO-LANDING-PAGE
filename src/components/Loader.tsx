@@ -42,7 +42,8 @@ export const Loader = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 2 }}
+        
       >
         <p className="text-4xl lg:text-7xl font-bold p-2 font-Integral leading-normal tracking-normal">
           <span className="sr-only">SPOTLIGHTSTUDIO.</span>

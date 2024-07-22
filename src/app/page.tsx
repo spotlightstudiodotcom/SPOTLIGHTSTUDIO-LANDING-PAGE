@@ -31,9 +31,9 @@ export default function Home() {
         {loading ? (
           <motion.div
             key="loader"
-            initial={{ opacity: 0, scale: 0.1 }}
-            animate={{ opacity: 1, scale: 1 } }
-            transition={{ duration: 2, ease: easing }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 } }
+            transition={{ duration: 0.5, ease: easing }}
             exit={{  
               y: -1000, 
               transition: { duration: 1, ease: easing }
