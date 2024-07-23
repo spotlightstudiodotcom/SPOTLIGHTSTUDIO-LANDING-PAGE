@@ -1,23 +1,31 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from 'framer-motion';
 import { cn } from "./utils";
-type TextSlideInFromBottomProps = {
-    className?: string;
-    text : string;
-};
+import { useRef } from 'react'; 
 
-export const TextSlideInFromBottom = ({text,className}: TextSlideInFromBottomProps) => {
-    const textVariants = {
-        hidden: { opacity: 0, y: 100 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeInOut" }},
-    };
 
-    return (
-        <div className="overflow-hidden">
-            <motion.div variants={textVariants} initial="hidden" animate="visible" className="flex items-center justify-start gap-3 lg:gap-10 overflow-hidden">{text}</motion.div>
-        </div>
-    );
+export function GradualSpacing({ text}: { text: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  return (
+    <div className="flex  justify-center">
+      <AnimatePresence>
+        {text.split('').map((char, i) => (
+          <motion.p
+            ref={ref}
+            key={i}
+            initial={{ opacity: 0, x: -18 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            exit="hidden"
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+           
+          >
+            {char === ' ' ? <span>&nbsp;</span> : char}
+          </motion.p>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
 }
-
 
 const DURATION = 0.25;
 const STAGGER = 0.025;

@@ -4,17 +4,19 @@ import { cn } from "../lib/utils";
 type SpotlightProps = {
   className?: string;
   fill?: string;
+  style?: React.CSSProperties;
 };
 
-export const Spotlight = ({ className, fill }: SpotlightProps) => {
+export const Spotlight = ({ className, fill, style }: SpotlightProps) => {
   return (
     <svg
       className={cn(
-        "animate-spotlight pointer-events-none absolute z-[1] h-[169%] w-[138%] lg:w-[84%] opacity-0",
+        "animate-spotlight pointer-events-none absolute z-[1] h-[300%] w-[250%] lg:w-[150%] opacity-0",
         className
       )}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 3787 2842"
+      viewBox="0 0 5680.5 4263"
       fill="none"
     >
       <g filter="url(#filter)">
@@ -33,8 +35,8 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
           id="filter"
           x="0.860352"
           y="0.838989"
-          width="3785.16"
-          height="2840.26"
+          width="5680.5"
+          height="4263"
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >

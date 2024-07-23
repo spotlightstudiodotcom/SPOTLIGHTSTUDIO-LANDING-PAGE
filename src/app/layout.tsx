@@ -3,6 +3,8 @@ import { Open_Sans } from "next/font/google";
 import { cn } from "./lib/utils"; 
 import "./globals.css";
 import { ThemeProvider } from "./context/Context";
+import Script from "next/script";
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -16,6 +18,11 @@ export const metadata: Metadata = {
       url: "https://www.studiospotlight.com.br/",
     },
   ],
+  verification: {
+    google: 'google',
+    yandex: 'yandex',
+    yahoo: 'yahoo',
+  },
   robots: {
     index: true,
     follow: true,
@@ -69,7 +76,6 @@ export const metadata: Metadata = {
       "pt-BR" : "/",
     }
   }
-
 };
 
 export const viewport = {
@@ -86,8 +92,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <GoogleTagManager gtmId="GTM-T4MMFMXL" />
       <body className={cn(openSans.className, "bg-black")}>
         <ThemeProvider>
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4MMFMXL"
+          height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
           {children}
         </ThemeProvider>
       </body>

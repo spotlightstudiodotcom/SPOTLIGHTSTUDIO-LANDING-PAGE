@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { DragCloseDrawer } from './DragCloseDrawer';
 import { ThemeContext } from '@/app/context/Context';
 import { cn } from '@/app/lib/utils';
-import Particles from '@/app/ui/Particles';
 
 interface FormInput {
   name: string;
@@ -55,13 +54,13 @@ export const Contact = () => {
       transition={{ duration: 0.2, ease: "easeInOut" }}
       className={cn("py-8 h-screen relative")}
     > 
-    <Particles
+    {/* <Particles
         className="absolute inset-0"
         quantity={140}
         ease={80}
         color={color}
         refresh
-      />
+      /> */}
       <MaxWidthWrapper>
         <DragCloseDrawer open={emailSent} setOpen={setEmailSent}>
           <h2 className={cn("font-Integral text-4xl lg:text-7xl text-wrap max-w-5xl mx-auto text-center")}>Email enviado com sucesso</h2>
@@ -74,7 +73,7 @@ export const Contact = () => {
             <input
               {...register('name', { required: true, maxLength: 60, minLength: 7 })}
               name="name"
-              className={cn("placeholder:text-current focus:px-2 px-0 bg-transparent border-b focus:ring-0 border-x-0 border-t-0 focus:border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
+              className={cn("placeholder:text-current focus:px-2 px-0 focus:border-b-white bg-transparent border-b focus:ring-0 border-x-0 border-t-0 focus:border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
               placeholder="Seu nome"
               type="text"
             />
@@ -92,7 +91,7 @@ export const Contact = () => {
             <input
               {...register('message', { required: true })}
               name="message"
-              className={cn("placeholder:text-current focus:px-2 px-0 bg-transparent border-b focus:ring-0 focus:border-t-0 border-x-0 border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
+              className={cn("placeholder:text-current focus:px-2 focus:border-b-white px-0 bg-transparent border-b focus:ring-0 focus:border-t-0 border-x-0 border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
               placeholder="Nome do serviço"
               type="text"
             />
@@ -113,7 +112,7 @@ export const Contact = () => {
                 pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ 
               })}
               name="email"
-              className={cn("placeholder:text-current focus:px-2 px-0 bg-transparent border-b focus:ring-0 focus:border-t-0 border-x-0 border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
+              className={cn("placeholder:text-current focus:px-2 focus:border-b-white px-0 bg-transparent border-b focus:ring-0 focus:border-t-0 border-x-0 border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
               placeholder="nome@email.com"
               type="email"
             />

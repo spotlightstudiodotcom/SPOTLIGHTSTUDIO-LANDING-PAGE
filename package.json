@@ -10,6 +10,8 @@
     "email": "email dev"
   },
   "dependencies": {
+    "@million/lint": "^1.0.0-rc.81",
+    "@next/third-parties": "^14.2.5",
     "@react-email/components": "0.0.21",
     "@studio-freight/lenis": "^1.0.42",
     "@tabler/icons-react": "^3.11.0",

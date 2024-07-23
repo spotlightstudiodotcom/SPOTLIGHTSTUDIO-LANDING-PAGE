@@ -10,6 +10,7 @@ import Loader from "@/components/Loader";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { About } from "@/components/About";
 
 const transitionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -57,10 +58,11 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: easing, delay: 0.2 }}
+                transition={{ duration: 1.5, ease: easing, delay: 0.2 }}
               >
               <Hero />
               </motion.div>
+              <About />
               {/* <BentoGridSecondDemo /> */}
               {/* <Services /> */}
               <Contact />

@@ -5,11 +5,16 @@ import MaxWidthWrapper from "./MaxWidth";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeContext } from "@/app/context/Context";
+import { GradualSpacing } from "@/app/lib/Animation";
+
+const setMenuOpen = (isOpen: boolean) => {
+  setMenuOpen(!isOpen);
+};
 
 export const Navbar = ({ className }: { className?: string }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const textVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: (i: number) => ({
@@ -46,7 +51,6 @@ export const Navbar = ({ className }: { className?: string }) => {
 
   return (
     <nav
-
       className={cn(
         "w-full py-4 text-white fixed top-0 z-30 bg-transparent",
         theme ? "opacity-100 transition-opacity" : "opacity-0 transition-opacity -z-20",
@@ -54,17 +58,15 @@ export const Navbar = ({ className }: { className?: string }) => {
     >
       <MaxWidthWrapper>
         <div className="flex items-center justify-between w-full">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1}}
-            transition={{ duration: 1 }}
+          <div className="animate-fadeIn"
           >
             <Link href="/" className="text-lg lg:text-2xl font-bold p-2 font-Integral leading-normal tracking-normal">
               <span className="sr-only">SPOTLIGHTSTUDIO.</span>
               <AnimatedText text="SPOTLIGHTSTUDIO." />
+              {/* <GradualSpacing text="SPOTLIGHTSTUDIO." /> */}
             </Link>
-          </motion.div>
-          <HamburgerIcon isOpen={menuOpen} setMenuOpen={() => setMenuOpen(!menuOpen)} />
+          </div>
+          <HamburgerIcon isOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <ul
             className={cn(
               "flex items-center gap-4 [&>li]:cursor-pointer",
@@ -75,38 +77,38 @@ export const Navbar = ({ className }: { className?: string }) => {
             <li
               className={cn(
                 "text-base font-medium text-neutral-300 hover:text-white",
-                active === "home" && "text-white"
+                active === "inicio" && "text-white"
               )}
-              onClick={() => setActive("home")}
+              onClick={() => setActive("inicio")}
             >
-              Home
+              Inicio
             </li>
             <li
               className={cn(
                 "text-base font-medium text-neutral-300 hover:text-white",
-                active === "about" && "text-white"
+                active === "sobre" && "text-white"
               )}
-              onClick={() => setActive("about")}
+              onClick={() => setActive("sobre")}
             >
-              About
+              Sobre
             </li>
             <li
               className={cn(
                 "text-base font-medium text-neutral-300 hover:text-white",
-                active === "services" && "text-white"
+                active === "atividades" && "text-white"
               )}
-              onClick={() => setActive("services")}
+              onClick={() => setActive("atividades")}
             >
-              Services
+              Atividades
             </li>
             <li
               className={cn(
                 "text-base font-medium text-neutral-300 hover:text-white",
-                active === "contact" && "text-white"
+                active === "contato" && "text-white"
               )}
-              onClick={() => setActive("contact")}
+              onClick={() => setActive("contato")}
             >
-              Contact
+              Contato
             </li>
           </ul>
         </div>

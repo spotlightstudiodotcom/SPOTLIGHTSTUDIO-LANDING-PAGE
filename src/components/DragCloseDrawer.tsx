@@ -7,7 +7,6 @@ import {
   motion,
 } from "framer-motion";
 
-
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
