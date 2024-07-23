@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect,useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BentoGridSecondDemo } from "@/components/BentoGrid";
 import { FeaturesSectionDemo } from "@/components/FeatureSection";
@@ -8,6 +8,8 @@ import { Navbar } from "@/components/Navbar";
 import { Services } from "@/components/Services";
 import Loader from "@/components/Loader"; 
 import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const transitionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -42,27 +44,29 @@ export default function Home() {
             <Loader />
           </motion.div>
         ) : (
-          <motion.div
-            key="content"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={transitionVariants}
-            transition={{ duration: 1.5, ease: easing }}
-          >
-            <Navbar />
+          <SmoothScrolling key="smooth-scrolling">
             <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: easing, delay: 0.2 }}
+              key="content"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={transitionVariants}
+              transition={{ duration: 1.5, ease: easing }}
             >
+              <Navbar />
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: easing, delay: 0.2 }}
+              >
               <Hero />
+              </motion.div>
+              {/* <BentoGridSecondDemo /> */}
+              {/* <Services /> */}
+              <Contact />
+              <Footer />
             </motion.div>
-            {/* <BentoGridSecondDemo /> */}
-            {/* <Services /> */}
-            <Contact />
-            {/* <FeaturesSectionDemo /> */}
-          </motion.div>
+          </SmoothScrolling>
         )}
       </AnimatePresence>
   );

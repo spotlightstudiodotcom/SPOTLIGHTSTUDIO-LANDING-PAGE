@@ -50,7 +50,7 @@ export const Loader = () => {
           <AnimatedText text="SPOTLIGHTSTUDIO." />
         </p>
       </motion.div>
-      <p className="text-lg lg:text-2xl font-bold p-2 leading-normal tracking-normal">Um estúdio digital que cria sites que não só brilham, mas também performam.</p>
+      <p className="text-lg lg:text-2xl font-bold p-2 leading-normal text-center tracking-normal">Um estúdio digital que cria sites que não só brilham, mas também performam.</p>
     </div>
   );
 };

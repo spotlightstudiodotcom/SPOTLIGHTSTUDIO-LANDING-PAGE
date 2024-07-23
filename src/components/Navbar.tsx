@@ -1,14 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { cn } from "../app/lib/utils";
 import MaxWidthWrapper from "./MaxWidth";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ThemeContext } from "@/app/context/Context";
 
 export const Navbar = ({ className }: { className?: string }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const textVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: (i: number) => ({
@@ -45,9 +46,10 @@ export const Navbar = ({ className }: { className?: string }) => {
 
   return (
     <nav
+
       className={cn(
         "w-full py-4 text-white fixed top-0 z-30 bg-transparent",
-        className
+        theme ? "opacity-100 transition-opacity" : "opacity-0 transition-opacity -z-20",
       )}
     >
       <MaxWidthWrapper>

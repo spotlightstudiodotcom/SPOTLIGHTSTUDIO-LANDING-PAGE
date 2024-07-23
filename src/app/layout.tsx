@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import { cn } from "./lib/utils"; 
 import "./globals.css";
+import { ThemeProvider } from "./context/Context";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -30,11 +31,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon-48x48.ico",
     apple: "/apple-touch-icon.ico",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
   },
   keywords: [
     "Spotlight Studio",
@@ -76,6 +72,13 @@ export const metadata: Metadata = {
 
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,7 +87,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={cn(openSans.className, "bg-black")}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
