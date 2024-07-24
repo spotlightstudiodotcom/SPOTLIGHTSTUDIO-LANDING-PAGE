@@ -1,6 +1,5 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
-import { DirectionAwareHover } from "./direction-aware-hover";
 import Image from "next/image";
 
 
@@ -29,7 +28,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <>
       <div className="w-[450px] lg:w-[500px] h-[54vh]">
-          <p className="text-base lg:text-lg text-white">
+          <p className="text-base lg:text-lg text-white mb-4">
             {card.title}
           </p>
           <Image src={card.url} alt={card.title} width={600} height={600} className="w-full h-full object-cover rounded-2xl" />
@@ -48,38 +47,38 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "/SEO.webp",
+    url: "https://images.unsplash.com/photo-1721048149858-139c52892fc9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Studio Spotlight",
     id: 1,
   },
   {
-    url: "/SEO.webp",
-    title: "Title 2",
+    url: "https://images.unsplash.com/photo-1721251326644-05457660fc4e?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Em progresso",
     id: 2,
   },
   {
-    url: "/SEO.webp",
-    title: "Title 3",
+    url: "https://images.unsplash.com/photo-1720887237257-3d1ad1a06c8a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Em progresso",
     id: 3,
   },
   {
-    url: "/SEO.webp",
-    title: "Title 4",
+    url: "https://images.unsplash.com/photo-1721333671137-8f77de74756e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Em progresso",
     id: 4,
   },
   {
-    url: "/SEO.webp",
-    title: "Title 5",
+    url: "https://images.unsplash.com/photo-1721224026389-bd0f4fd04eea?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Em progresso",
     id: 5,
   },
   {
-    url: "/SEO.webp",
-    title: "Title 6",
+    url: "https://images.unsplash.com/photo-1716322603195-2fbb04f132cf?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Em progresso",
     id: 6,
   },
   {
-    url: "/SEO.webp",
-    title: "Title 7",
+    url: "https://images.unsplash.com/photo-1712738603891-3f504a0d2658?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Em progresso",
     id: 7,
   },
 ];

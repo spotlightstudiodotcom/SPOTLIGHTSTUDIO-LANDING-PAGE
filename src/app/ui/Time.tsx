@@ -7,7 +7,7 @@ const BrazilianTime = () => {
             const date = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
             const options: Intl.DateTimeFormatOptions = { timeZoneName: 'short', hour: 'numeric', minute: 'numeric' };
             const formattedTime = new Date(date).toLocaleTimeString('en-US', options);
-            setTime(`BRAZIL, RN ${formattedTime}`);
+            setTime(`BRASIL, RN ${formattedTime}`);
         }, 1000);
         return () => clearInterval(interval);
     }, []);

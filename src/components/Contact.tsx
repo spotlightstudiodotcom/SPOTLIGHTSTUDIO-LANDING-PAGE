@@ -8,6 +8,7 @@ import { DragCloseDrawer } from './DragCloseDrawer';
 import { ThemeContext } from '@/app/context/Context';
 import { cn } from '@/app/lib/utils';
 import Image from 'next/image';
+import DateComponent from '@/app/ui/Date';
 
 interface FormInput {
   name: string;
@@ -69,7 +70,8 @@ export const Contact = () => {
         </DragCloseDrawer>
         <section className="flex flex-col md:flex-row items-start justify-between gap-11">
           <div className='flex flex-col'>
-          <h2 className={cn("font-Integral text-4xl lg:text-7xl text-wrap max-w-5xl", textColor)}>Quero entrar em contato</h2>
+          <h2 className={cn("font-Integral text-4xl lg:text-7xl text-wrap max-w-5xl mb-4 lg:mb-10", textColor)}>Quero entrar em contato</h2>
+          <DateComponent />
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className={cn("w-full grid grid-cols-1 gap-4 place-content-start", textColor)}>
             <label className={cn("text-base lg:text-lg", textColor)}>Meu nome é</label>
