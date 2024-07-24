@@ -18,7 +18,15 @@ const nextConfig = {
       hostname: "assets.aceternity.com",
       port: "",
       pathname: "/**"
-    }]
+    },
+    {
+      protocol: "https",
+      hostname: "tenor.com",
+      port: "",
+      pathname: "/**"
+    }
+  ]
+    
   }
 };
 export default MillionLint.next({

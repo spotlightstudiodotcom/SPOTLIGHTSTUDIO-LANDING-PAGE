@@ -1,6 +1,7 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { DirectionAwareHover } from "./direction-aware-hover";
+import Image from "next/image";
 
 
 export const HorizontalScrollCarousel = () => {
@@ -13,8 +14,8 @@ export const HorizontalScrollCarousel = () => {
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
-      <div className="sticky top-0 flex  flex-col h-screen items-start justify-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
+      <div className="sticky top-0 flex flex-col h-screen items-start justify-center overflow-hidden ">
+        <motion.div style={{ x }} className="flex gap-4 border-t border-t-white pt-10">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}
@@ -27,9 +28,12 @@ export const HorizontalScrollCarousel = () => {
 const Card = ({ card }: { card: CardType }) => {
   return (
     <>
-      <DirectionAwareHover key={card.id} imageUrl={card.url} className="w-60 h-60 md:w-96 md:h-96 rounded-lg overflow-hidden group/card relative">
-          <p className="text-base text-lg">{card.title}</p>
-        </DirectionAwareHover>
+      <div className="w-[450px] lg:w-[500px] h-[54vh]">
+          <p className="text-base lg:text-lg text-white">
+            {card.title}
+          </p>
+          <Image src={card.url} alt={card.title} width={600} height={600} className="w-full h-full object-cover rounded-2xl" />
+      </div>
     </>
   );
 };
@@ -45,7 +49,7 @@ type CardType = {
 const cards: CardType[] = [
   {
     url: "/SEO.webp",
-    title: "Title 1",
+    title: "Studio Spotlight",
     id: 1,
   },
   {

@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { DragCloseDrawer } from './DragCloseDrawer';
 import { ThemeContext } from '@/app/context/Context';
 import { cn } from '@/app/lib/utils';
+import Image from 'next/image';
 
 interface FormInput {
   name: string;
@@ -67,7 +68,9 @@ export const Contact = () => {
           <p className={cn("text-base text-center mt-8")}>Em breve entraremos em contato.</p>
         </DragCloseDrawer>
         <section className="flex flex-col md:flex-row items-start justify-between gap-11">
+          <div className='flex flex-col'>
           <h2 className={cn("font-Integral text-4xl lg:text-7xl text-wrap max-w-5xl", textColor)}>Quero entrar em contato</h2>
+          </div>
           <form onSubmit={handleSubmit(onSubmit)} className={cn("w-full grid grid-cols-1 gap-4 place-content-start", textColor)}>
             <label className={cn("text-base lg:text-lg", textColor)}>Meu nome é</label>
             <input

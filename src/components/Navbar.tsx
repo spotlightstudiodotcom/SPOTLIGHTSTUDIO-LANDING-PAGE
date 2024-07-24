@@ -1,11 +1,10 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { cn } from "../app/lib/utils";
 import MaxWidthWrapper from "./MaxWidth";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeContext } from "@/app/context/Context";
-import { GradualSpacing } from "@/app/lib/Animation";
 
 const setMenuOpen = (isOpen: boolean) => {
   setMenuOpen(!isOpen);
@@ -76,7 +75,7 @@ export const Navbar = ({ className }: { className?: string }) => {
           >
             <li
               className={cn(
-                "text-base font-medium text-neutral-300 hover:text-white",
+                "text-base font-medium text-white/80 hover:text-white",
                 active === "inicio" && "text-white"
               )}
               onClick={() => setActive("inicio")}
@@ -85,7 +84,7 @@ export const Navbar = ({ className }: { className?: string }) => {
             </li>
             <li
               className={cn(
-                "text-base font-medium text-neutral-300 hover:text-white",
+                "text-base font-medium text-white/80 hover:text-white",
                 active === "sobre" && "text-white"
               )}
               onClick={() => setActive("sobre")}
@@ -94,7 +93,7 @@ export const Navbar = ({ className }: { className?: string }) => {
             </li>
             <li
               className={cn(
-                "text-base font-medium text-neutral-300 hover:text-white",
+                "text-base font-medium text-white/80 hover:text-white",
                 active === "atividades" && "text-white"
               )}
               onClick={() => setActive("atividades")}
@@ -103,7 +102,7 @@ export const Navbar = ({ className }: { className?: string }) => {
             </li>
             <li
               className={cn(
-                "text-base font-medium text-neutral-300 hover:text-white",
+                "text-base font-medium text-white/80 hover:text-white",
                 active === "contato" && "text-white"
               )}
               onClick={() => setActive("contato")}

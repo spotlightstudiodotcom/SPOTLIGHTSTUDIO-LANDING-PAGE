@@ -16,7 +16,7 @@ export const About = () => {
                     <h1 className="text-3xl font-Integral md:text-7xl font-bold text-white">
                         Sobre
                     </h1>
-                    <p className="text-white text-base max-w-prose my-4 lg:my-10">
+                    <p className="text-white/80 text-base max-w-prose lg:text-lg my-4 lg:my-10">
                         Somos uma pequena equipe de pessoas curiosas e criativas que 
                         cria trabalhos dos quais nos orgulhamos, para pessoas e marcas nas quais acreditamos.
                         Com muita colaboração e vontade colocada em cada projeto, identificamos as habilidades necessárias e reunimos as 
@@ -25,9 +25,8 @@ export const About = () => {
                         interagem com as marcas.
                     </p>
                 </div>
-                <HorizontalScrollCarousel />
+                <HorizontalScrollCarousel  />
             </MaxWidthWrapper>
-       
         </section>
     )
 }

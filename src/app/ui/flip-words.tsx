@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/app/lib/utils";
 
@@ -27,6 +27,8 @@ export const FlipWords = ({
         startAnimation();
       }, duration);
   }, [isAnimating, duration, startAnimation]);
+
+  const memoizedCurrentWord = useMemo(() => currentWord, [currentWord]);
 
   return (
     <AnimatePresence
@@ -62,11 +64,11 @@ export const FlipWords = ({
           "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100",
           className
         )}
-        key={currentWord}
+        key={memoizedCurrentWord}
       >
-        {currentWord.split("").map((letter, index) => (
+        {memoizedCurrentWord.split("").map((letter, index) => (
           <motion.span
-            key={currentWord + index}
+            key={memoizedCurrentWord + index}
             initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{
