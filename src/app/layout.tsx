@@ -1,20 +1,21 @@
-import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
-import { cn } from "./lib/utils"; 
-import "./globals.css";
-import { ThemeProvider } from "./context/Context";
-import {GoogleTagManager } from '@next/third-parties/google';
+import type { Metadata } from 'next';
+import { Open_Sans } from 'next/font/google';
+import { cn } from './lib/utils';
+import './globals.css';
+import { ThemeProvider } from './context/Context';
+import { GoogleTagManager } from '@next/third-parties/google';
 
-const openSans = Open_Sans({ subsets: ["latin"] });
+const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.studiospotlight.com.br"),
-  title: "Spotlight Studio | Criação de Sites, Marketing Digital e SEO",
-  description: "Spotlight Studio é um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.",
+  metadataBase: new URL('https://www.studiospotlight.com.br'),
+  title: 'Spotlight Studio | Criação de Sites, Marketing Digital e SEO',
+  description:
+    'Spotlight Studio é um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.',
   authors: [
     {
-      name: "Spotlight Studio",
-      url: "https://www.studiospotlight.com.br/",
+      name: 'Spotlight Studio',
+      url: 'https://www.studiospotlight.com.br/',
     },
   ],
   verification: {
@@ -34,51 +35,51 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-48x48.ico",
-    apple: "/apple-touch-icon.ico",
+    icon: '/favicon.ico',
+    shortcut: '/favicon-48x48.ico',
+    apple: '/apple-touch-icon.ico',
   },
   keywords: [
-    "Spotlight Studio",
-    "Criação de Sites",
-    "Marketing Digital",
-    "SEO",
-    "Design",
-    "Desenvolvimento Web",
-    "Branding",
-    "Naming",
-    "Performance",
-    "Estúdio Digital",
-    "Agência Digital",
+    'Spotlight Studio',
+    'Criação de Sites',
+    'Marketing Digital',
+    'SEO',
+    'Design',
+    'Desenvolvimento Web',
+    'Branding',
+    'Naming',
+    'Performance',
+    'Estúdio Digital',
+    'Agência Digital',
   ],
   openGraph: {
-    title: "Spotlight Studio | Criação de Sites, Marketing Digital e SEO",
+    title: 'Spotlight Studio | Criação de Sites, Marketing Digital e SEO',
     description:
-      "Spotlight Studio é um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.",
-    url: "https://www.studiospotlight.com.br/",
-    siteName: "Spotlight Studio",
+      'Spotlight Studio é um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.',
+    url: 'https://www.studiospotlight.com.br/',
+    siteName: 'Spotlight Studio',
     images: [
       {
-        url: "https://www.studiospotlight.com.br/spotlight-logo.png",
+        url: 'https://www.studiospotlight.com.br/spotlight-logo.png',
         width: 250,
         height: 150,
-        alt: "Spotlight Studio",
+        alt: 'Spotlight Studio',
       },
     ],
-    locale: "pt_BR",
-    type: "website",
+    locale: 'pt_BR',
+    type: 'website',
   },
-  assets : "/spotlight-logo.png",
-  alternates : {
-    canonical : "https://www.studiospotlight.com.br/",
-    languages : {
-      "pt-BR" : "/",
-    }
-  }
+  assets: '/spotlight-logo.png',
+  alternates: {
+    canonical: 'https://www.studiospotlight.com.br/',
+    languages: {
+      'pt-BR': '/',
+    },
+  },
 };
 
 export const viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
@@ -92,11 +93,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <GoogleTagManager gtmId="GTM-T4MMFMXL" />
-      <body className={cn(openSans.className, "bg-black")}>
+      <body className={cn(openSans.className, 'min-w-80 bg-black')}>
         <ThemeProvider>
-        <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4MMFMXL"
-          height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-T4MMFMXL"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            ></iframe>
+          </noscript>
           {children}
         </ThemeProvider>
       </body>

@@ -1,11 +1,6 @@
-import React, { Dispatch, ReactNode, SetStateAction } from "react";
-import useMeasure from "react-use-measure";
-import {
-  useDragControls,
-  useMotionValue,
-  useAnimate,
-  motion,
-} from "framer-motion";
+import React, { Dispatch, ReactNode, SetStateAction } from 'react';
+import useMeasure from 'react-use-measure';
+import { useDragControls, useMotionValue, useAnimate, motion } from 'framer-motion';
 
 interface Props {
   open: boolean;
@@ -25,9 +20,9 @@ export const DragCloseDrawer = ({ open, setOpen, children }: Props) => {
       opacity: [1, 0],
     });
 
-    const yStart = typeof y.get() === "number" ? y.get() : 0;
+    const yStart = typeof y.get() === 'number' ? y.get() : 0;
 
-    await animate("#drawer", {
+    await animate('#drawer', {
       y: [yStart, height],
     });
 
@@ -48,10 +43,10 @@ export const DragCloseDrawer = ({ open, setOpen, children }: Props) => {
             id="drawer"
             ref={drawerRef}
             onClick={(e) => e.stopPropagation()}
-            initial={{ y: "100%" }}
-            animate={{ y: "0%" }}
+            initial={{ y: '100%' }}
+            animate={{ y: '0%' }}
             transition={{
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
             className="absolute bottom-0 h-[75vh] w-full overflow-hidden rounded-t-3xl bg-white"
             style={{ y }}
@@ -72,7 +67,7 @@ export const DragCloseDrawer = ({ open, setOpen, children }: Props) => {
               bottom: 0.5,
             }}
           >
-            <div className="absolute left-0 right-0 top-0 z-10 flex justify-center shadow-sm bg-white/70 p-4">
+            <div className="absolute left-0 right-0 top-0 z-10 flex justify-center bg-white/70 p-4 shadow-sm">
               <button
                 onPointerDown={(e) => {
                   controls.start(e);
@@ -80,9 +75,7 @@ export const DragCloseDrawer = ({ open, setOpen, children }: Props) => {
                 className="h-2 w-14 cursor-grab touch-none rounded-full bg-black active:cursor-grabbing"
               ></button>
             </div>
-            <div className="relative z-0 h-full overflow-y-scroll p-4 pt-12">
-              {children}
-            </div>
+            <div className="relative z-0 h-full overflow-y-scroll p-4 pt-12">{children}</div>
           </motion.div>
         </motion.div>
       )}

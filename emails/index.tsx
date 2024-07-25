@@ -16,17 +16,15 @@ interface SpotlightstudioProps {
   email: string;
   message: string;
 }
-const BASEURL = 'https://res-console.cloudinary.com/dwzguysnk/media_explorer_thumbnails/72e2087f96541147d602b8679eb01631/detailed'
+const BASEURL =
+  "https://res-console.cloudinary.com/dwzguysnk/media_explorer_thumbnails/72e2087f96541147d602b8679eb01631/detailed";
 
-const Spotlightstudio = ({
-  name,
-  email,
-  message,
-}: SpotlightstudioProps) => (
+const Spotlightstudio = ({ name, email, message }: SpotlightstudioProps) => (
   <Html>
     <Head />
     <Preview>
-      Um estúdio digital que cria sites que não só brilham, mas também performam.
+      Um estúdio digital que cria sites que não só brilham, mas também
+      performam.
     </Preview>
     <Body style={main}>
       <Container style={container}>
@@ -37,9 +35,13 @@ const Spotlightstudio = ({
           alt="LOGO"
           style={logo}
         />
-        <Text style={paragraph}> {name} mandou uma nova proposta de {message} de {email}</Text>
         <Text style={paragraph}>
-          Um estúdio digital que cria sites que não só brilham, mas também performam.
+          {" "}
+          {name} mandou uma nova proposta de {message} de {email}
+        </Text>
+        <Text style={paragraph}>
+          Um estúdio digital que cria sites que não só brilham, mas também
+          performam.
         </Text>
         <Text style={paragraph}>
           Boa sorte,
@@ -54,7 +56,6 @@ const Spotlightstudio = ({
     </Body>
   </Html>
 );
-
 
 export default Spotlightstudio;
 

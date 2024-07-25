@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties } from 'react';
 
 interface RippleProps {
   mainCircleSize?: number;
@@ -17,13 +17,13 @@ const Ripple = React.memo(function Ripple({
         const size = mainCircleSize + i * 70;
         const opacity = mainCircleOpacity - i * 0.03;
         const animationDelay = `${i * 0.06}s`;
-        const borderStyle = i === numCircles - 1 ? "dashed" : "solid";
+        const borderStyle = i === numCircles - 1 ? 'dashed' : 'solid';
         const borderOpacity = 5 + i * 5;
 
         return (
           <div
             key={i}
-            className={`absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:${i}]`}
+            className={`bg-foreground/25 absolute left-1/2 top-1/2 translate-x-1/2 translate-y-1/2 animate-ripple rounded-full border shadow-xl [--i:${i}]`}
             style={
               {
                 width: `${size}px`,
@@ -31,7 +31,7 @@ const Ripple = React.memo(function Ripple({
                 opacity: opacity,
                 animationDelay: animationDelay,
                 borderStyle: borderStyle,
-                borderWidth: "1px",
+                borderWidth: '1px',
                 borderColor: `rgba(var(--foreground-rgb), ${borderOpacity / 100})`,
               } as CSSProperties
             }
@@ -42,6 +42,6 @@ const Ripple = React.memo(function Ripple({
   );
 });
 
-Ripple.displayName = "Ripple";
+Ripple.displayName = 'Ripple';
 
 export default Ripple;

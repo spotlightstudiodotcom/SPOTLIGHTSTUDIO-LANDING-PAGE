@@ -1,11 +1,11 @@
-"use client";
+'use client';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import Link from "next/link";
-import MaxWidthWrapper from "./MaxWidth";
-import { FlipLink } from "@/app/lib/Animation";
-import { ThemeContext } from "@/app/context/Context";
-import { cn } from "@/app/lib/utils";
-import { motion, useInView } from "framer-motion";
+import Link from 'next/link';
+import MaxWidthWrapper from './MaxWidth';
+import { FlipLink } from '@/app/lib/Animation';
+import { ThemeContext } from '@/app/context/Context';
+import { cn } from '@/app/lib/utils';
+import { motion, useInView } from 'framer-motion';
 import Ripple from '@/app/ui/Ripple';
 import BrazilianTime from '@/app/ui/Time';
 export const Footer = () => {
@@ -25,31 +25,66 @@ export const Footer = () => {
   }, [isInView, wasInView, toggleTheme]);
 
   return (
-    <motion.footer
-      ref={ref}
-      className='bg-white'
-    >
-      <MaxWidthWrapper className={cn("flex flex-col items-center overflow-hidden h-[calc(100vh-32px)] justify-center text-black")}>
-        <ul className={cn("flex items-center lg:text-base text-sm justify-between gap-8 w-full font-Integral text-black")}>
-              <li><Link href="/"><FlipLink>Instagram</FlipLink></Link></li>
-              {/* <li><Link href="/"><FlipLink>About</FlipLink></Link></li>
+    <motion.footer ref={ref} className="bg-white">
+      <MaxWidthWrapper
+        className={cn(
+          'flex h-[calc(100vh-32px)] flex-col items-center justify-center overflow-hidden text-black',
+        )}
+      >
+        <ul
+          className={cn(
+            'flex w-full items-center justify-between gap-8 font-Integral text-xs text-black lg:text-lg',
+          )}
+        >
+          <li>
+            <Link href="/">
+              <FlipLink>Instagram</FlipLink>
+            </Link>
+          </li>
+          {/* <li><Link href="/"><FlipLink>About</FlipLink></Link></li>
               <li><Link href="/"><FlipLink>Services</FlipLink></Link></li> */}
-              <li><Link href="/"><FlipLink>Twitter</FlipLink></Link></li>
+          <li>
+            <Link href="/">
+              <FlipLink>Twitter</FlipLink>
+            </Link>
+          </li>
         </ul>
-        <div className='h-full grid place-content-center relative'>
-        <Ripple />
+        <div className="relative grid h-full place-content-center">
+          <Ripple />
           <BrazilianTime />
-          <p className="font-Integral text-center text-4xl lg:text-[14vh] lg:leading-tight w-full text-nowrap">© Spotlight Studio.</p>
-          <p className="font-Integral text-center">Todos os direitos reservados.</p>
+          <p className="relative w-full text-nowrap text-center font-Integral text-2xl lg:mb-4 lg:text-7xl lg:leading-tight xl:text-[7rem]">
+            © Spotlight Studio.
+          </p>
+          <p className="text-center text-lg font-bold lg:text-lg">Todos os direitos reservados.</p>
         </div>
       </MaxWidthWrapper>
       <MaxWidthWrapper>
-        <nav className="flex items-center justify-between w-full">
-          <ul className={cn("flex lg:text-base text-sm items-center justify-between gap-8 w-full font-Integral text-black")}>
-            <li><Link href="/"><FlipLink>Inicio</FlipLink></Link></li>
-            <li><Link href="/"><FlipLink>sobre</FlipLink></Link></li>
-            <li><Link href="/"><FlipLink>Atividades</FlipLink></Link></li>
-            <li><Link href="/"><FlipLink>Contato</FlipLink></Link></li>
+        <nav className="flex w-full items-center justify-between">
+          <ul
+            className={cn(
+              'flex w-full items-center justify-between font-Integral text-xs text-black lg:gap-8 lg:text-lg',
+            )}
+          >
+            <li>
+              <Link href="/">
+                <FlipLink>Inicio</FlipLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <FlipLink>sobre</FlipLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <FlipLink>Atividades</FlipLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <FlipLink>Contato</FlipLink>
+              </Link>
+            </li>
           </ul>
         </nav>
       </MaxWidthWrapper>

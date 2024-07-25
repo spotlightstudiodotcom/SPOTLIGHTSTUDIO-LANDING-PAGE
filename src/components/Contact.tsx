@@ -1,13 +1,12 @@
-"use client";
+'use client';
 import React, { useContext, useState } from 'react';
-import MaxWidthWrapper from "./MaxWidth";
+import MaxWidthWrapper from './MaxWidth';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/app/ui/Button';
 import { motion } from 'framer-motion';
 import { DragCloseDrawer } from './DragCloseDrawer';
 import { ThemeContext } from '@/app/context/Context';
 import { cn } from '@/app/lib/utils';
-import Image from 'next/image';
 import DateComponent from '@/app/ui/Date';
 
 interface FormInput {
@@ -24,7 +23,7 @@ export const Contact = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<FormInput>();
 
   async function onSubmit(formData: FormInput) {
@@ -36,53 +35,67 @@ export const Contact = () => {
       body: JSON.stringify({
         name: formData.name,
         email: formData.email,
-        message: formData.message
+        message: formData.message,
+      }),
+    })
+      .then(() => {
+        setEmailSent(true);
       })
-    }).then(() => {
-      setEmailSent(true);
-    }).catch((error) => {
-      // toast.error('Erro ao enviar email: ' + error.message);
-    });
+      .catch((error) => {
+        // toast.error('Erro ao enviar email: ' + error.message);
+      });
     reset();
   }
 
-  const textColor = theme ? "text-white" : "text-black";
-  const borderColor = theme ? "border-b-white" : "border-b-black";
-  const color = theme ? "#ffffff" : "#000000";
+  const textColor = theme ? 'text-white' : 'text-black';
+  const borderColor = theme ? 'border-b-white' : 'border-b-black';
+  const color = theme ? '#ffffff' : '#000000';
   return (
     <motion.div
-      initial={{ backgroundColor: theme ? "#000000" : "#ffffff" }}
-      animate={{ backgroundColor: theme ? "#000000" : "#ffffff" }}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
-      className={cn("py-8 h-screen relative")}
-    > 
-    {/* <Particles
-        className="absolute inset-0"
-        quantity={140}
-        ease={80}
-        color={color}
-        refresh
-      /> */}
+      initial={{ backgroundColor: theme ? '#000000' : '#ffffff' }}
+      animate={{ backgroundColor: theme ? '#000000' : '#ffffff' }}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
+      className={cn('relative h-screen py-8')}
+    >
       <MaxWidthWrapper>
         <DragCloseDrawer open={emailSent} setOpen={setEmailSent}>
-          <h2 className={cn("font-Integral text-4xl lg:text-7xl text-wrap max-w-5xl mx-auto text-center")}>Email enviado com sucesso</h2>
-          <p className={cn("text-base text-center mt-8")}>Em breve entraremos em contato.</p>
+          <h2
+            className={cn(
+              'mx-auto max-w-5xl text-wrap text-center font-Integral text-2xl lg:text-7xl',
+            )}
+          >
+            Email enviado com sucesso
+          </h2>
+          <p className={cn('mt-8 text-center text-xs')}>Em breve entraremos em contato.</p>
         </DragCloseDrawer>
-        <section className="flex flex-col md:flex-row items-start justify-between gap-11">
-          <div className='flex flex-col'>
-          <h2 className={cn("font-Integral text-4xl lg:text-7xl text-wrap max-w-5xl mb-4 lg:mb-10", textColor)}>Quero entrar em contato</h2>
-          <DateComponent />
+        <section className="flex flex-col items-start justify-between gap-11 md:flex-row">
+          <div className="flex flex-col">
+            <h2
+              className={cn(
+                'mb-4 max-w-5xl text-wrap font-Integral text-2xl lg:mb-10 lg:text-7xl',
+                textColor,
+              )}
+            >
+              Quero entrar em contato
+            </h2>
+            <DateComponent />
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className={cn("w-full grid grid-cols-1 gap-4 place-content-start", textColor)}>
-            <label className={cn("text-base lg:text-lg", textColor)}>Meu nome é</label>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={cn('grid w-full grid-cols-1 place-content-start gap-4', textColor)}
+          >
+            <label className={cn('text-xs lg:text-lg', textColor)}>Meu nome é</label>
             <input
               {...register('name', { required: true, maxLength: 60, minLength: 7 })}
               name="name"
-              className={cn("placeholder:text-current focus:px-2 px-0 focus:border-b-white bg-transparent border-b focus:ring-0 border-x-0 border-t-0 focus:border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
+              className={cn(
+                'border-x-0 border-b border-t-0 bg-transparent px-0 pb-2 placeholder:text-xs placeholder:text-current focus:border-x-0 focus:border-b-2 focus:border-t-0 focus:border-b-white focus:px-2 focus:outline-none focus:ring-0 placeholder:lg:text-lg',
+                borderColor,
+              )}
               placeholder="Seu nome"
               type="text"
             />
-            {errors.name && errors.name.type === "required" && (
+            {errors.name && errors.name.type === 'required' && (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -92,15 +105,18 @@ export const Contact = () => {
                 Preencha o campo de nome com ao menos 7 caracteres
               </motion.span>
             )}
-            <label className={cn("text-base lg:text-lg", textColor)}>e eu estou interessado em</label>
+            <label className={cn('text-xs lg:text-lg', textColor)}>e eu estou interessado em</label>
             <input
               {...register('message', { required: true })}
               name="message"
-              className={cn("placeholder:text-current focus:px-2 focus:border-b-white px-0 bg-transparent border-b focus:ring-0 focus:border-t-0 border-x-0 border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
+              className={cn(
+                'border-x-0 border-b border-t-0 bg-transparent px-0 pb-2 placeholder:text-xs placeholder:text-current focus:border-x-0 focus:border-b-2 focus:border-t-0 focus:border-b-white focus:px-2 focus:outline-none focus:ring-0 placeholder:lg:text-lg',
+                borderColor,
+              )}
               placeholder="Nome do serviço"
               type="text"
             />
-            {errors.message && errors.message.type === "required" && (
+            {errors.message && errors.message.type === 'required' && (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -110,18 +126,21 @@ export const Contact = () => {
                 Preencha o campo de mensagem
               </motion.span>
             )}
-            <label className={cn("text-base lg:text-lg", textColor)}>e o meu e-mail é</label>
+            <label className={cn('text-base lg:text-lg', textColor)}>e o meu e-mail é</label>
             <input
-              {...register('email', { 
-                required: true, 
-                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ 
+              {...register('email', {
+                required: true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               })}
               name="email"
-              className={cn("placeholder:text-current focus:px-2 focus:border-b-white px-0 bg-transparent border-b focus:ring-0 focus:border-t-0 border-x-0 border-t-0 focus:border-x-0 pb-2 focus:outline-none focus:border-b-2", borderColor)}
+              className={cn(
+                'border-x-0 border-b border-t-0 bg-transparent px-0 pb-2 placeholder:text-xs placeholder:text-current focus:border-x-0 focus:border-b-2 focus:border-t-0 focus:border-b-white focus:px-2 focus:outline-none focus:ring-0 placeholder:lg:text-lg',
+                borderColor,
+              )}
               placeholder="nome@email.com"
               type="email"
             />
-            {errors.email && errors.email.type === "required" && (
+            {errors.email && errors.email.type === 'required' && (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -131,7 +150,7 @@ export const Contact = () => {
                 Preencha o campo de email
               </motion.span>
             )}
-            {errors.email && errors.email.type === "pattern" && (
+            {errors.email && errors.email.type === 'pattern' && (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -141,7 +160,7 @@ export const Contact = () => {
                 Insira um e-mail válido
               </motion.span>
             )}
-            <Button className={cn("max-w-fit", textColor)} type="submit" text='Enviar' />
+            <Button className={cn('max-w-fit', textColor)} type="submit" text="Enviar" />
           </form>
         </section>
       </MaxWidthWrapper>

@@ -1,16 +1,16 @@
-"use client";
-import React, { useContext, useState } from "react";
-import { cn } from "../app/lib/utils";
-import MaxWidthWrapper from "./MaxWidth";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ThemeContext } from "@/app/context/Context";
+'use client';
+import React, { useContext, useState } from 'react';
+import { cn } from '../app/lib/utils';
+import MaxWidthWrapper from './MaxWidth';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ThemeContext } from '@/app/context/Context';
 
 const setMenuOpen = (isOpen: boolean) => {
   setMenuOpen(!isOpen);
 };
 
-export const Navbar = ({ className }: { className?: string }) => {
+export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const { theme } = useContext(ThemeContext);
@@ -21,7 +21,7 @@ export const Navbar = ({ className }: { className?: string }) => {
       x: 0,
       transition: {
         delay: i * 0.1,
-        type: "spring",
+        type: 'spring',
         stiffness: 100,
         damping: 10,
       },
@@ -31,7 +31,7 @@ export const Navbar = ({ className }: { className?: string }) => {
   const AnimatedText = ({ text }: { text: string }) => {
     return (
       <span className="inline-flex">
-        {text.split("").map((char, index) => (
+        {text.split('').map((char, index) => (
           <motion.span
             key={index}
             custom={index}
@@ -51,15 +51,17 @@ export const Navbar = ({ className }: { className?: string }) => {
   return (
     <nav
       className={cn(
-        "w-full py-4 text-white fixed top-0 z-30 bg-transparent",
-        theme ? "opacity-100 transition-opacity" : "opacity-0 transition-opacity -z-20",
+        'fixed top-0 z-30 w-full bg-transparent py-4 text-white',
+        theme ? 'opacity-100 transition-opacity' : '-z-20 opacity-0 transition-opacity',
       )}
     >
       <MaxWidthWrapper>
-        <div className="flex items-center justify-between w-full">
-          <div className="animate-fadeIn"
-          >
-            <Link href="/" className="text-lg lg:text-2xl font-bold p-2 font-Integral leading-normal tracking-normal">
+        <div className="flex w-full items-center justify-between">
+          <div className="animate-fadeIn">
+            <Link
+              href="/"
+              className="p-2 font-Integral text-lg font-bold leading-normal tracking-normal lg:text-2xl"
+            >
               <span className="sr-only">SPOTLIGHTSTUDIO.</span>
               <AnimatedText text="SPOTLIGHTSTUDIO." />
               {/* <GradualSpacing text="SPOTLIGHTSTUDIO." /> */}
@@ -68,44 +70,46 @@ export const Navbar = ({ className }: { className?: string }) => {
           <HamburgerIcon isOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <ul
             className={cn(
-              "flex items-center gap-4 [&>li]:cursor-pointer",
-              "lg:flex",
-              menuOpen ? "flex flex-col justify-center items-center fixed min-h-screen top-0 left-0 w-full bg-black lg:bg-transparent" : "hidden"
+              'flex items-center gap-4 [&>li]:cursor-pointer',
+              'lg:flex',
+              menuOpen
+                ? 'fixed left-0 top-0 flex min-h-screen w-full flex-col items-center justify-center bg-black lg:bg-transparent'
+                : 'hidden',
             )}
           >
             <li
               className={cn(
-                "text-base font-medium text-white/80 hover:text-white",
-                active === "inicio" && "text-white"
+                'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
+                active === 'inicio' && 'text-white',
               )}
-              onClick={() => setActive("inicio")}
+              onClick={() => setActive('inicio')}
             >
               Inicio
             </li>
             <li
               className={cn(
-                "text-base font-medium text-white/80 hover:text-white",
-                active === "sobre" && "text-white"
+                'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
+                active === 'sobre' && 'text-white',
               )}
-              onClick={() => setActive("sobre")}
+              onClick={() => setActive('sobre')}
             >
               Sobre
             </li>
             <li
               className={cn(
-                "text-base font-medium text-white/80 hover:text-white",
-                active === "atividades" && "text-white"
+                'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
+                active === 'atividades' && 'text-white',
               )}
-              onClick={() => setActive("atividades")}
+              onClick={() => setActive('atividades')}
             >
               Atividades
             </li>
             <li
               className={cn(
-                "text-base font-medium text-white/80 hover:text-white",
-                active === "contato" && "text-white"
+                'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
+                active === 'contato' && 'text-white',
               )}
-              onClick={() => setActive("contato")}
+              onClick={() => setActive('contato')}
             >
               Contato
             </li>
@@ -120,30 +124,30 @@ export const Navbar = ({ className }: { className?: string }) => {
 type Props = {
   isOpen: boolean;
   setMenuOpen: (isOpen: boolean) => void;
-}
-const HamburgerIcon = ({ isOpen,setMenuOpen }: Props) => (
+};
+const HamburgerIcon = ({ isOpen, setMenuOpen }: Props) => (
   <motion.div
-    className="cursor-pointer lg:hidden z-10"
+    className="z-10 cursor-pointer lg:hidden"
     onClick={() => setMenuOpen(!isOpen)}
     initial="closed"
-    animate={isOpen ? "open" : "closed"}
+    animate={isOpen ? 'open' : 'closed'}
   >
     <motion.span
-      className="block w-8 h-0.5 bg-white mb-1"
+      className="mb-1 block h-0.5 w-8 bg-white"
       variants={{
         closed: { rotate: 0, y: 0 },
         open: { rotate: 45, y: 6 },
       }}
     />
     <motion.span
-      className="block w-8 h-0.5 bg-white mb-1"
+      className="mb-1 block h-0.5 w-8 bg-white"
       variants={{
         closed: { opacity: 1 },
         open: { opacity: 0 },
       }}
     />
     <motion.span
-      className="block w-8 h-0.5 bg-white"
+      className="block h-0.5 w-8 bg-white"
       variants={{
         closed: { rotate: 0, y: 0 },
         open: { rotate: -45, y: -6 },
