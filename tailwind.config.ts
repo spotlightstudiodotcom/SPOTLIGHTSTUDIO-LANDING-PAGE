@@ -15,11 +15,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      Integral: ['"IntegralCF"', "sans-serif"],
+      Open_Sans: ["'Open Sans'", "sans-serif"],
+    },
     extend: {
-      fontFamily: {
-        Integral: ['"IntegralCF"', "sans-serif"],
-        Open_Sans: ["'Open Sans'", "sans-serif"],
-      },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shimmer: "shimmer 2s linear infinite",
