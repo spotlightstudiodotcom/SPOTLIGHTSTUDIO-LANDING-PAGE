@@ -3,11 +3,12 @@ import React, { useContext, useState } from 'react';
 import MaxWidthWrapper from './MaxWidth';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/app/ui/Button';
-import { motion } from 'framer-motion';
+import { motion,useInView } from 'framer-motion';
 import { DragCloseDrawer } from './DragCloseDrawer';
 import { ThemeContext } from '@/app/context/Context';
 import { cn } from '@/app/lib/utils';
 import DateComponent from '@/app/ui/Date';
+import Image from 'next/image';
 
 interface FormInput {
   name: string;
@@ -18,6 +19,8 @@ interface FormInput {
 export const Contact = () => {
   const [emailSent, setEmailSent] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const imageRef = React.useRef(null);
+  const isInView = useInView(imageRef, { once: true, amount: 0.5 });
 
   const {
     register,
@@ -49,13 +52,12 @@ export const Contact = () => {
 
   const textColor = theme ? 'text-white' : 'text-black';
   const borderColor = theme ? 'border-b-white' : 'border-b-black';
-  const color = theme ? '#ffffff' : '#000000';
   return (
     <motion.div
       initial={{ backgroundColor: theme ? '#000000' : '#ffffff' }}
       animate={{ backgroundColor: theme ? '#000000' : '#ffffff' }}
       transition={{ duration: 0.2, ease: 'easeInOut' }}
-      className={cn('relative h-screen py-8')}
+      className={cn('relative h-full')}
     >
       <MaxWidthWrapper>
         <DragCloseDrawer open={emailSent} setOpen={setEmailSent}>
@@ -68,8 +70,8 @@ export const Contact = () => {
           </h2>
           <p className={cn('mt-8 text-center text-xs')}>Em breve entraremos em contato.</p>
         </DragCloseDrawer>
-        <section className="flex flex-col items-start justify-between gap-11 md:flex-row">
-          <div className="flex flex-col">
+        <section className="flex flex-col items-start justify-between gap-11 md:flex-row pt-10">
+          <div className="flex flex-col w-full">
             <h2
               className={cn(
                 'mb-4 max-w-5xl text-wrap font-Integral text-2xl lg:mb-10 lg:text-7xl',
@@ -78,9 +80,7 @@ export const Contact = () => {
             >
               Quero entrar em contato
             </h2>
-            <DateComponent />
-          </div>
-          <form
+            <form
             onSubmit={handleSubmit(onSubmit)}
             className={cn('grid w-full grid-cols-1 place-content-start gap-4', textColor)}
           >
@@ -137,7 +137,7 @@ export const Contact = () => {
                 'border-x-0 border-b border-t-0 bg-transparent px-0 pb-2 placeholder:text-xs placeholder:text-current focus:border-x-0 focus:border-b-2 focus:border-t-0 focus:border-b-white focus:px-2 focus:outline-none focus:ring-0 placeholder:lg:text-lg',
                 borderColor,
               )}
-              placeholder="nome@email.com"
+              placeholder="Email@email.com"
               type="email"
             />
             {errors.email && errors.email.type === 'required' && (
@@ -161,7 +161,23 @@ export const Contact = () => {
               </motion.span>
             )}
             <Button className={cn('max-w-fit', textColor)} type="submit" text="Enviar" />
-          </form>
+          </form> 
+          </div>
+          <motion.div
+            className='w-full'
+            ref={imageRef}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <Image
+              src="/spotlight-stock-image.webp"
+              alt="spotlight"
+              width={800}
+              height={800}
+              className="h-full w-full rounded-sm object-cover object-center"
+            />
+          </motion.div>
         </section>
       </MaxWidthWrapper>
     </motion.div>

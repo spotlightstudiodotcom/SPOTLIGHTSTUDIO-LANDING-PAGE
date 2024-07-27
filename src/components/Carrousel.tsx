@@ -18,7 +18,7 @@ const Content = () => {
               </span>{" "}
               {item.description}
             </p>
-            <div className="flex items-center justify-center gap-8">
+            <div className="flex items-center flex-col md:flex-row justify-center gap-2 lg:gap-8">
             <Image
               src={item.mobile}
               alt={item.imageALT}
@@ -31,7 +31,7 @@ const Content = () => {
               alt={item.imageALT}
               height="500"
               width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10 rounded-2xl bg-red-400"
+              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain mt-10 rounded-2xl"
             />
             </div>
           </div>

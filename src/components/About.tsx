@@ -5,7 +5,6 @@
 // desenvolvimento para construímos experiências digitais que transformam a maneira como as pessoas se conectam e
 // interagem com as marcas.
 
-import { HorizontalScrollCarousel } from '@/app/ui/HorinzontalCarousel';
 import MaxWidthWrapper from './MaxWidth';
 import { AppleCardsCarouselDemo } from './Carrousel';
 
@@ -24,7 +23,6 @@ export const About = () => {
             transformam a maneira como as pessoas se conectam e interagem com as marcas.
           </p>
         </div>
-        {/* <HorizontalScrollCarousel /> */}
         <AppleCardsCarouselDemo />
       </MaxWidthWrapper>
     </section>
