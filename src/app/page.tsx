@@ -11,6 +11,8 @@ import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import SmoothScrolling from '@/components/SmoothScrolling';
 import { About } from '@/components/About';
+import { FeaturesSectionDemo } from '@/components/FeatureSection';
+import MaxWidthWrapper from '@/components/MaxWidth';
 
 const transitionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -64,6 +66,9 @@ export default function Home() {
               <Hero />
             </motion.div>
             <About />
+            <MaxWidthWrapper>
+              <FeaturesSectionDemo />
+            </MaxWidthWrapper>
             {/* <BentoGridSecondDemo /> */}
             {/* <Services /> */}
             <Contact />

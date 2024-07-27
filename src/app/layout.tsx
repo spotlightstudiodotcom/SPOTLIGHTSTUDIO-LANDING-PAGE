@@ -83,6 +83,9 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  type: 'responsive',
+  zoom: 1,
+  deviceScaleFactor: 1,
 };
 
 export default function RootLayout({

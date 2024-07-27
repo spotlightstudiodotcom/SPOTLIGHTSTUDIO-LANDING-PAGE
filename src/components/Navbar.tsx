@@ -51,7 +51,7 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        'fixed top-0 z-30 w-full bg-transparent py-4 text-white',
+        'fixed top-0 z-[1100] w-full bg-transparent py-4 text-white',
         theme ? 'opacity-100 transition-opacity' : '-z-20 opacity-0 transition-opacity',
       )}
     >

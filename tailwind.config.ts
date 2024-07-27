@@ -1,3 +1,4 @@
+import { Open_Sans } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
@@ -17,6 +18,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         Integral: ['"IntegralCF"', "sans-serif"],
+        Open_Sans: ["'Open Sans'", "sans-serif"],
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
