@@ -66,9 +66,9 @@ export default function Home() {
               <Hero />
             </motion.div>
             <About />
-            <MaxWidthWrapper>
+            {/* <MaxWidthWrapper>
               <FeaturesSectionDemo />
-            </MaxWidthWrapper>
+            </MaxWidthWrapper> */}
             {/* <BentoGridSecondDemo /> */}
             {/* <Services /> */}
             <Contact />
