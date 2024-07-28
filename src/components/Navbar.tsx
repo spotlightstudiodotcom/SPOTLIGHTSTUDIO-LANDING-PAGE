@@ -3,12 +3,7 @@ import React, { useContext, useState } from 'react';
 import { cn } from '../app/lib/utils';
 import MaxWidthWrapper from './MaxWidth';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { ThemeContext } from '@/app/context/Context';
-
-const setMenuOpen = (isOpen: boolean) => {
-  setMenuOpen(!isOpen);
-};
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,6 +43,15 @@ export const Navbar = () => {
     );
   };
 
+  const handleLinkClick = (linkName: string) => {
+    setActive(linkName);
+    setMenuOpen(false);
+    const element = document.getElementById(linkName);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav
       className={cn(
@@ -58,14 +62,17 @@ export const Navbar = () => {
       <MaxWidthWrapper>
         <div className="flex w-full items-center justify-between">
           <div className="animate-fadeIn">
-            <Link
-              href="/"
+            <a
+              href="#home"
               className="p-2 font-Integral text-lg font-bold leading-normal tracking-normal lg:text-2xl"
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick('home');
+              }}
             >
               <span className="sr-only">SPOTLIGHTSTUDIO.</span>
               <AnimatedText text="SPOTLIGHTSTUDIO." />
-              {/* <GradualSpacing text="SPOTLIGHTSTUDIO." /> */}
-            </Link>
+            </a>
           </div>
           <HamburgerIcon isOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <ul
@@ -80,44 +87,71 @@ export const Navbar = () => {
             <li
               className={cn(
                 'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
-                active === 'inicio' && 'text-white',
+                active === 'home' && 'text-white',
               )}
-              onClick={() => setActive('inicio')}
             >
-              Inicio
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick('home');
+                }}
+              >
+                Home
+              </a>
             </li>
             <li
               className={cn(
                 'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
-                active === 'sobre' && 'text-white',
+                active === 'about' && 'text-white',
               )}
-              onClick={() => setActive('sobre')}
             >
-              Sobre
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick('about');
+                }}
+              >
+                About
+              </a>
             </li>
             <li
               className={cn(
                 'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
-                active === 'atividades' && 'text-white',
+                active === 'services' && 'text-white',
               )}
-              onClick={() => setActive('atividades')}
             >
-              Atividades
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick('services');
+                }}
+              >
+                Services
+              </a>
             </li>
             <li
               className={cn(
                 'text-xs font-medium text-white/80 hover:text-white lg:text-lg',
-                active === 'contato' && 'text-white',
+                active === 'contact' && 'text-white',
               )}
-              onClick={() => setActive('contato')}
             >
-              Contato
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick('contact');
+                }}
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </div>
       </MaxWidthWrapper>
     </nav>
-    // </header>
   );
 };
 
@@ -125,6 +159,7 @@ type Props = {
   isOpen: boolean;
   setMenuOpen: (isOpen: boolean) => void;
 };
+
 const HamburgerIcon = ({ isOpen, setMenuOpen }: Props) => (
   <motion.div
     className="z-10 cursor-pointer lg:hidden"

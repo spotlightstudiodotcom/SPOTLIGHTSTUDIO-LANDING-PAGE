@@ -1,18 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// import { BentoGridSecondDemo } from '@/components/BentoGrid';
-// import { FeaturesSectionDemo } from '@/components/FeatureSection';
 import { Hero } from '@/components/Hero';
 import { Navbar } from '@/components/Navbar';
-// import { Services } from '@/components/Services';
+import { Services } from '@/components/Services';
 import Loader from '@/components/Loader';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import SmoothScrolling from '@/components/SmoothScrolling';
 import { About } from '@/components/About';
-import { FeaturesSectionDemo } from '@/components/FeatureSection';
-import MaxWidthWrapper from '@/components/MaxWidth';
 
 const transitionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -30,7 +26,6 @@ export default function Home() {
       setLoading(false);
     }, 3000);
   }, []);
-
 
   return (
     <AnimatePresence>
@@ -66,11 +61,7 @@ export default function Home() {
               <Hero />
             </motion.div>
             <About />
-            {/* <MaxWidthWrapper>
-              <FeaturesSectionDemo />
-            </MaxWidthWrapper> */}
-            {/* <BentoGridSecondDemo /> */}
-            {/* <Services /> */}
+            <Services />
             <Contact />
             <Footer />
           </motion.div>

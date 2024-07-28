@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Open_Sans } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import { cn } from './lib/utils';
 import './globals.css';
 import { ThemeProvider } from './context/Context';
 import { GoogleTagManager } from '@next/third-parties/google';
 
-const openSans = Open_Sans({ subsets: ['latin'] });
+const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.studiospotlight.com.br'),
@@ -96,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <GoogleTagManager gtmId="GTM-T4MMFMXL" />
-      <body className={cn(openSans.className, 'min-w-80 bg-black')}>
+      <body className={cn(outfit.className, 'min-w-80 bg-black')}>
         <ThemeProvider>
           <noscript>
             <iframe

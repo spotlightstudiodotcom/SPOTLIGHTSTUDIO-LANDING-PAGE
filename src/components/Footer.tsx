@@ -1,6 +1,5 @@
 'use client';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidth';
 import { FlipLink } from '@/app/lib/Animation';
 import { ThemeContext } from '@/app/context/Context';
@@ -8,6 +7,7 @@ import { cn } from '@/app/lib/utils';
 import { motion, useInView } from 'framer-motion';
 import Ripple from '@/app/ui/Ripple';
 import BrazilianTime from '@/app/ui/Time';
+
 export const Footer = () => {
   const { toggleTheme } = useContext(ThemeContext);
   const ref = useRef(null);
@@ -24,6 +24,13 @@ export const Footer = () => {
     }
   }, [isInView, wasInView, toggleTheme]);
 
+  const handleLinkClick = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.footer ref={ref} className="bg-white">
       <MaxWidthWrapper
@@ -37,16 +44,14 @@ export const Footer = () => {
           )}
         >
           <li>
-            <Link href="/">
+            <a href="https://www.instagram.com/sptlghtstudio/" target="_blank" rel="noopener noreferrer">
               <FlipLink>Instagram</FlipLink>
-            </Link>
+            </a>
           </li>
-          {/* <li><Link href="/"><FlipLink>About</FlipLink></Link></li>
-              <li><Link href="/"><FlipLink>Services</FlipLink></Link></li> */}
           <li>
-            <Link href="/">
+            <a href="https://x.com/std_spotlight" target="_blank" rel="noopener noreferrer">
               <FlipLink>Twitter</FlipLink>
-            </Link>
+            </a>
           </li>
         </ul>
         <div className="relative grid h-full place-content-center">
@@ -66,24 +71,24 @@ export const Footer = () => {
             )}
           >
             <li>
-              <Link href="/">
+              <a href="#home" onClick={() => handleLinkClick('home')}>
                 <FlipLink>Inicio</FlipLink>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/">
-                <FlipLink>sobre</FlipLink>
-              </Link>
+              <a href="#about" onClick={() => handleLinkClick('about')}>
+                <FlipLink>Sobre</FlipLink>
+              </a>
             </li>
             <li>
-              <Link href="/">
+              <a href="#services" onClick={() => handleLinkClick('services')}>
                 <FlipLink>Atividades</FlipLink>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/">
+              <a href="#contact" onClick={() => handleLinkClick('contact')}>
                 <FlipLink>Contato</FlipLink>
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

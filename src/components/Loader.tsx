@@ -43,7 +43,7 @@ export const Loader = () => {
           <AnimatedText text="SPOTLIGHTSTUDIO." />
         </p>
       </div>
-      <p className="text-center text-xs font-bold leading-normal tracking-normal lg:text-lg mt-2">
+      <p className="mt-2 text-center text-xs font-bold leading-normal tracking-normal lg:text-lg">
         Um estúdio digital que cria sites que não só brilham, mas também performam.
       </p>
     </div>
