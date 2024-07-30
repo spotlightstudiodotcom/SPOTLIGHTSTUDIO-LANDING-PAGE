@@ -97,7 +97,7 @@ export const Navbar = () => {
                   handleLinkClick('home');
                 }}
               >
-                Home
+                Inicio
               </a>
             </li>
             <li
@@ -113,7 +113,7 @@ export const Navbar = () => {
                   handleLinkClick('about');
                 }}
               >
-                About
+                Sobre
               </a>
             </li>
             <li
@@ -129,7 +129,7 @@ export const Navbar = () => {
                   handleLinkClick('services');
                 }}
               >
-                Services
+                Atividades
               </a>
             </li>
             <li
@@ -145,7 +145,7 @@ export const Navbar = () => {
                   handleLinkClick('contact');
                 }}
               >
-                Contact
+                Contato
               </a>
             </li>
           </ul>
