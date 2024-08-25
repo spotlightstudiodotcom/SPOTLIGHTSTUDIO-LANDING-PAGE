@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "media4.giphy.com",
+        hostname : "cdn.sanity.io",
         port: "",
         pathname: "/**",
       },

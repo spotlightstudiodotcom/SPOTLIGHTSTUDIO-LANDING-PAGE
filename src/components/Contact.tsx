@@ -162,7 +162,7 @@ export const Contact = () => {
                   Insira um e-mail válido
                 </motion.span>
               )}
-              <Button className={cn('max-w-fit', textColor)} type="submit" text="Enviar" />
+              <Button className={cn('max-w-fit mt-10', textColor)} type="submit" text="Enviar" />
             </form>
           </div>
           <motion.div

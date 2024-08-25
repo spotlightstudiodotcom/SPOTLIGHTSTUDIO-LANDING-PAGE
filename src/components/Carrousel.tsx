@@ -1,64 +1,98 @@
 'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel, Card } from '@/components/apple-cards-carousel';
+import { client } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
 
-const Content = () => {
+interface SanityImage {
+  _type: 'image';
+  asset: {
+    _ref: string;
+    _type: 'reference';
+  };
+}
+
+interface CardItem {
+  title: string;
+  url: string;
+  category: string;
+  description: string;
+  image: SanityImage;
+  imageAlt?: string;
+  mobile: SanityImage;
+}
+
+interface ContentProps {
+  item: CardItem;
+}
+
+const Content: React.FC<ContentProps> = ({ item }) => {
   return (
-    <>
-      {DATA.map((item, index) => {
-        return (
-          <div
-            key={item.title + index}
-            className="mb-4 rounded-2xl bg-white p-8 md:p-14 dark:bg-neutral-800"
-          >
-            <p className="font-sans mx-auto max-w-prose text-base text-neutral-600 md:text-2xl dark:text-neutral-400">
-              <span className="font-bold text-neutral-700 dark:text-white">{item.title}</span>{' '}
-              {item.description}
-            </p>
-            <div className="flex flex-col items-center justify-center gap-2 md:flex-row lg:gap-8">
-              <Image
-                src={item.mobile}
-                alt={item.imageALT}
-                height="500"
-                width="500"
-                className="mx-auto mt-10 h-full w-full rounded-2xl object-contain md:h-1/2 md:w-1/2"
-              />
-              <Image
-                src={item.image}
-                alt={item.imageALT}
-                height="500"
-                width="500"
-                className="mx-auto mt-10 h-full w-full rounded-2xl object-contain md:h-1/2 md:w-1/2"
-              />
-            </div>
-          </div>
-        );
-      })}
-    </>
+    <div className="mb-4 rounded-2xl bg-white p-8 md:p-14 dark:bg-neutral-800">
+      <p className="font-sans mx-auto max-w-prose text-base text-neutral-600 md:text-2xl dark:text-neutral-400">
+        <span className="font-bold text-neutral-700 dark:text-white">{item.title}</span>{' '}
+        {item.description}
+      </p>
+      <div className="flex flex-col items-center justify-center gap-2 md:flex-row lg:gap-8">
+        <Image
+          src={urlFor(item.mobile).url()}
+          alt={item.imageAlt || `Mobile view of ${item.title}`}
+          height={500}
+          width={500}
+          className="mx-auto mt-10 h-full w-full rounded-2xl object-contain md:h-1/2 md:w-1/2"
+        />
+        <Image
+          src={urlFor(item.image).url()}
+          alt={item.imageAlt || `Desktop view of ${item.title}`}
+          height={500}
+          width={500}
+          className="mx-auto mt-10 h-full w-full rounded-2xl object-contain md:h-1/2 md:w-1/2"
+        />
+      </div>
+    </div>
   );
 };
 
-const DATA = [
-  {
-    title: 'Spotlight Studio',
-    url: 'https://spotlightstudio.com/',
-    category: 'Landing Page',
-    description:
-      'Um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.',
-    image: '/projetos/spotlight/landing.png',
-    imageALT: 'Spotlight Studio',
-    mobile: '/projetos/spotlight/responsive-spotlight.png',
-    content: <Content />,
-  },
-];
-
 export function AppleCardsCarouselDemo() {
-  const cards = DATA.map((card, index) => <Card key={card.image} card={card} index={index} />);
+  const [cards, setCards] = useState<CardItem[]>([]);
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      const query = `*[_type == "card"] {
+        title,
+        url,
+        category,
+        description,
+        image,
+        imageAlt,
+        mobile
+      }`;
+      
+      const result = await client.fetch<CardItem[]>(query);
+      setCards(result);
+    };
+
+    fetchCards();
+  }, []);
+
+  const cardComponents = cards.map((card, index) => (
+    <Card
+      key={card.image.asset._ref}
+      card={{
+        ...card,
+        image: urlFor(card.image).url(),
+        mobile: urlFor(card.mobile).url(),
+        imageAlt: card.imageAlt || `View of ${card.title}`,
+        content: <Content item={card} />,
+      }}
+      index={index}
+    />
+  ));
 
   return (
     <div className="h-full w-full">
-      <Carousel items={cards} />
+      <Carousel items={cardComponents} />
     </div>
   );
 }

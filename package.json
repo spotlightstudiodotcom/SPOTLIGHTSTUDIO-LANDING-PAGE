@@ -14,6 +14,8 @@
     "@million/lint": "^1.0.0-rc.81",
     "@next/third-parties": "^14.2.5",
     "@react-email/components": "0.0.21",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.55.0",
     "@studio-freight/lenis": "^1.0.42",
     "@tabler/icons-react": "^3.11.0",
     "clsx": "^2.1.1",
@@ -21,6 +23,7 @@
     "framer-motion": "^11.3.2",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.5",
+    "next-sanity": "^9.4.7",
     "react": "^18",
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",
@@ -28,7 +31,9 @@
     "react-hook-form": "^7.52.1",
     "react-use-measure": "^2.1.1",
     "resend": "^3.4.0",
+    "sanity": "^3.55.0",
     "sonner": "^1.5.0",
+    "styled-components": "^6.1.12",
     "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {

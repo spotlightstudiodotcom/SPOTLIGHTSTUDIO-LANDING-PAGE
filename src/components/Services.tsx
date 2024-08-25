@@ -4,7 +4,7 @@ import { HoverImageLinks } from '@/app/ui/HoverAnimations';
 
 export const Services = () => {
   const words =
-    'Transformamos suas ideias em realidade digital com páginas de destino que se destacam. Nossa equipe especializada oferece:';
+    'No Spotlight Studio, transformamos suas ideias em realidade digital com soluções personalizadas e inovadoras. Nossa equipe especializada oferece:';
   return (
     <section id="services">
       <MaxWidthWrapper className="lg:pt-10">
