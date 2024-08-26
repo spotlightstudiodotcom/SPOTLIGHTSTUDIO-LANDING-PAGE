@@ -9,9 +9,9 @@ const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.studiospotlight.com.br'),
-  title: 'Spotlight Studio | Criação de Sites, Marketing Digital e SEO',
+  title: 'Spotlight Studio | Soluções Digitais Otimizadas',
   description:
-    'Spotlight Studio é um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.',
+    'Spotlight Studio - Seu Parceiro de Soluções Digitais: Especialistas em design de sites, marketing digital, SEO, branding e muito mais. Eleve sua presença online com nossas soluções personalizadas.',
   authors: [
     {
       name: 'Spotlight Studio',
@@ -40,22 +40,12 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.ico',
   },
   keywords: [
-    'Spotlight Studio',
-    'Criação de Sites',
-    'Marketing Digital',
-    'SEO',
-    'Design',
-    'Desenvolvimento Web',
-    'Branding',
-    'Naming',
-    'Performance',
-    'Estúdio Digital',
-    'Agência Digital',
+    "Spotlight Studio", "web design", "marketing digital", "SEO", "design de sites", "web development", "agencia digital"
   ],
   openGraph: {
-    title: 'Spotlight Studio | Criação de Sites, Marketing Digital e SEO',
+    title: 'Spotlight Studio | Soluções Digitais Otimizadas',
     description:
-      'Spotlight Studio é um estúdio digital especializado em criação de sites, marketing digital, SEO, design e branding. Transformamos sua presença online com soluções personalizadas.',
+      'Spotlight Studio - Seu Parceiro de Soluções Digitais: Especialistas em design de sites, marketing digital, SEO, branding e muito mais. Eleve sua presença online com nossas soluções personalizadas.',
     url: 'https://www.studiospotlight.com.br/',
     siteName: 'Spotlight Studio',
     images: [
@@ -82,8 +72,6 @@ export const viewport = {
   width: 'device-width',
   type: 'responsive',
   initialScale: 1,
-
-
 };
 
 export default function RootLayout({
